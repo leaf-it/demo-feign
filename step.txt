@@ -1,0 +1,19 @@
+1.创建项目请参考demo项目，需要访问的服务注册erueka，feign本身需要注册erueka
+2.在项目中pom.xml添加
+ <dependency>
+   <groupId>org.springframework.cloud</groupId>
+   <artifactId>spring-cloud-starter-feign</artifactId>
+   <version>1.3.2.RELEASE</version>
+</dependency>
+3.启动类型中添加@EnableFeignClients注释以启动FeignClient功能
+  接口类添加:@FeignClient(name="服务名", url="url")  例如：@FeignClient(name="demo-config-client", url="127.0.0.1:5555")
+  接口类方法中添加： @RequestMapping(value = "/con/hello",method = RequestMethod.POST)
+4.配置application.porperties属性。
+ feign.httpclient.enabled=true
+5.启动，程序成功。
+
+
+
+
+
+
